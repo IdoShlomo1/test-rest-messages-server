@@ -14,6 +14,14 @@ def get_message_by_attr(key, value):
     return None
 
 
+def _convert_format(key, value):
+    if key == 'application':
+        value = int(value)
+    elif key == 'participants':
+        value = json.loads(value)
+    return value
+
+
 @app.route('/api/AddMessage', methods=['POST'])
 def create_message():
     record = json.loads(request.data)
@@ -34,10 +42,7 @@ def get_messages():
         return jsonify(db)
     else:
         key, value = list(search_key.items())[0]
-        if key == 'application':
-            value = int(value)
-        if key =='participants':
-            value = json.loads(value)
+        value = _convert_format(key, value)
         records = get_message_by_attr(key=key, value=value)
         if records:
             return jsonify(records)
@@ -49,8 +54,7 @@ def get_messages():
 def delete_message():
     search_key = dict(request.args)
     key, value = list(search_key.items())[0]
-    if key == 'application':
-        value = int(value)
+    value = _convert_format(key, value)
 
     records = get_message_by_attr(key=key, value=value)
     if records:
@@ -63,5 +67,4 @@ def delete_message():
 
 
 if __name__ == '__main__':
-    # app.run()
-    app.run(debug=True)
+    app.run()
