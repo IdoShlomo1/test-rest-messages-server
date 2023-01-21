@@ -110,16 +110,16 @@ def test_delete_non_existing_messages_by_query(messages_api, key, value):
     assert exeinfo.value.response.status_code == 404
 
 
-# @pytest.mark.parametrize('key, value', [
-#     ('par', get_random_number()),
-#     ('content', get_test_data('Content')),
-#     ('message_id', get_test_data('MessageId')),
-#     ('session_id', get_test_data('Session')),
-#     ('test', get_test_data('Test')),
-# ])
-# def test_delete_non_existing_messages_by_query(messages_api, key, value):
-#     with pytest.raises(requests.exceptions.HTTPError) as exeinfo:
-#         messages_api.get_messages_by_value(key, value).json()
-#
-#     assert exeinfo.value.response.json() == {'Error': 'Record does not exist'}
-#     assert exeinfo.value.response.status_code == 404
+@pytest.mark.parametrize('key, value', [
+    ('par', get_random_number()),
+    ('content', get_test_data('Content')),
+    ('message_id', get_test_data('MessageId')),
+    ('session_id', get_test_data('Session')),
+    ('test', get_test_data('Test')),
+])
+def test_delete_non_existing_messages_by_query(messages_api, key, value):
+    with pytest.raises(requests.exceptions.HTTPError) as exeinfo:
+        messages_api.get_messages_by_value(key, value).json()
+
+    assert exeinfo.value.response.json() == {'Error': 'Record does not exist'}
+    assert exeinfo.value.response.status_code == 404
