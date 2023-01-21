@@ -160,3 +160,9 @@ Expected:
     4. value: content
     5. value: participants
     6. value: non exists
+
+
+Running the test server:
+1. Change directory to `\the\path\to\messages_app`
+2. run `python server.py`
+
