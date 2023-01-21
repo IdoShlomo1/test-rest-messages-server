@@ -51,6 +51,8 @@ def delete_message():
     key, value = list(search_key.items())[0]
     if key == 'application':
         value = int(value)
+    if key == 'participants':
+        value = json.loads(value)
 
     records = get_message_by_attr(key=key, value=value)
     if records:
