@@ -166,3 +166,13 @@ Running the test server:
 1. Change directory to `\the\path\to\messages_app`
 2. run `python server.py`
 
+
+Running tests
+1. Change directory to `\the\path\to\automation`
+2. run `pytest -s -v --alluredir=allure-results`
+
+To Open allure report go to the directory where the report is located
+and run `allure serve allure-results`
+
+Report Example
+![](allure_example.png)

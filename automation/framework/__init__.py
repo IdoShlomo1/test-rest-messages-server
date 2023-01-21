@@ -5,5 +5,6 @@ from . import utils
 
 __all__ = [
     'MessageApi',
-    'MessageFactory'
+    'MessageFactory',
+    'utils'
 ]
