@@ -54,10 +54,6 @@ def get_messages():
 def delete_message():
     search_key = dict(request.args)
     key, value = list(search_key.items())[0]
-    # if key == 'application':
-    #     value = int(value)
-    # if key == 'participants':
-    #     value = json.loads(value)
     value = _convert_format(key, value)
 
     records = get_message_by_attr(key=key, value=value)
@@ -71,5 +67,4 @@ def delete_message():
 
 
 if __name__ == '__main__':
-    # app.run()
-    app.run(debug=True)
+    app.run()
