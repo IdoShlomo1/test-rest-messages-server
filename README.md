@@ -1,23 +1,24 @@
 
 
 
-## Convexum assignment
+## Test crud messages server
 
 
 ### Test Plan
 
-| #    | Case Name                                          | Steps | Test Data  | Expected | Status | 
-| ---  |-----------------------------------                 | -----:| ----------:| --------:|--------:|
-| 1    | Test Add message                                   | Send post |$1600       |
-| 1    | Test Add existing message                          | $1600 |$1600       |
-| 2    | Test Add invalid message                           |   $12 |$12         |
-| 2    | Test Delete message                                |    $1 |$1          |
-| 2    | Test Delete non existing message                   |    $1 |$1          |
-| 2    | Test Delete multiple messages                      |    $1 |$1          |
-| 2    | Test Get multiple messages by query param          |    $1 |$1          |
-| 2    | Test Delete multiple messages                      |    $1 |$1          |
-| 2    | Test Delete multiple messages                      |    $1 |$1          |
-| 2    | Test Delete multiple messages                      |    $1 |$1          |
+| #    | Case Name                                          | Status|
+| ---  |-----------------------------------                 | -----:| 
+| 1    | Test Add message                                   |PASS   |
+| 2    | Test Add existing message                          |PASS   |
+| 3    | Test Add invalid message                           |PASS   |
+| 4    | Test Delete message                                |PASS   |
+| 5    | Test Delete non existing message                   |PASS   |
+| 6    | Test Delete multiple messages                      |PASS   |
+| 7    | Test Get multiple messages by query param          |PASS   |
+| 8    | Test Get non existing messages by query param      |PASS   |
+| 9    | Test Delete multiple messages                      |PASS   |
+| 10   | Test Delete multiple messages                      |PASS   |
+| 11   | Test Delete non existing messages                  |PASS   |
 
 1. Name: Test Add message 
 Test Data: <br>
@@ -128,10 +129,34 @@ Expected:
 
 4. Name: Test delete message by value
     1. value: application
-    2. value: application
-    3. value: application
-    4. value: application
+    2. value: session_id
+    3. value: message_id
+    4. value: content
+    5. value: participants
+    6. value: non exists
 
 5. Name: Test delete non existing message
+    1. value: application
+    2. value: session_id
+    3. value: message_id
+    4. value: content
+    5. value: participants
+    6. value: non exists
 
-6. Name: Test delete message by invalid value
+
+6. Name: Test get non existing message
+    1. value: application
+    2. value: session_id
+    3. value: message_id
+    4. value: content
+    5. value: participants
+    6. value: non exists
+
+
+8. Name: Test get existing message
+    1. value: application
+    2. value: session_id
+    3. value: message_id
+    4. value: content
+    5. value: participants
+    6. value: non exists
