@@ -1,23 +1,11 @@
-from typing import Optional, Callable
+from typing import Optional, Any
 from requests import Session, Response
-from dataclasses import dataclass
-
-
-@dataclass
-class ParsedResponse:
-    data: object
-
-
-@dataclass
-class CustomResponse:
-    status_code: int
-    obj: object
 
 
 class ApiClient:
     BASE_PATH = ''
 
-    def __init__(self, session: Session, url: str, hooks: Optional[Callable] = None):
+    def __init__(self, session: Session, url: str, hooks: Optional[Any] = None):
         self._url = url
         self.session = session
         if hooks:
@@ -35,7 +23,6 @@ class ApiClient:
         :return: Response
         """
         response = self.session.request(method, *args, **kwargs)
-
         response.raise_for_status()
         return response
 
@@ -50,7 +37,7 @@ class ApiClient:
         return self._call('POST', *args, **kwargs)
 
     def put(self, *args, **kwargs) -> Optional[Response]:
-        return self._call('put', *args, **kwargs)
+        return self._call('PUT', *args, **kwargs)
 
     def delete(self, *args, **kwargs) -> Optional[Response]:
         return self._call('DELETE', *args, **kwargs)
